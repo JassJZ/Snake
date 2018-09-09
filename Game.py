@@ -4,6 +4,8 @@ from time import sleep
 
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 
+import random
+
 
 
 HEIGHT = 20
@@ -145,8 +147,12 @@ while(True):
     #foooooodd
 
     if newHead == food:
+    
+        RandomX= random.randint(1,18)
 
-        food = [15,55]
+        RandomY= random.randint(1,58)
+
+        food = [RandomX, RandomY]
 
         stdscr.addch(food[0], food[1], '*')
 
