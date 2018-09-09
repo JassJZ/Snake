@@ -176,5 +176,6 @@ while(True):
 
 curses.endwin()
 
+print("Score: You've eaten", (len(snake)-3), "apples")
 print("You ran out of the game")
 
