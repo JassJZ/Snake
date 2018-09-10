@@ -43,6 +43,10 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
 
         if len(a_snake)==6:
 
+            a_enemylist.pop()
+
+            a_enemylist.pop()
+
             randomex= random.randint(2,(a_height-3))
                 
             randomey= random.randint(2,(a_width-3))
@@ -74,6 +78,26 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
             a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(3))
     
     return a_enemylist
+
+def countdown(n,a_stdscr,a_height, a_width) :
+
+    for num in range(n,-1,-1):
+
+        string = str(num)
+
+        a_stdscr.refresh()
+
+        a_stdscr.addstr(round(a_height/2),round(a_width/2), string, curses.color_pair(3))
+
+        sleep(0.8)
+
+        a_stdscr.refresh()
+
+        sleep(1)
+
+        a_stdscr.addstr(round(a_height/2),round(a_width/2), "GO!", curses.color_pair(3))
+
+        a_stdscr.addstr(round(a_height/2),round(a_width/2), "      ")
 
 
 

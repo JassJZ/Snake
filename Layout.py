@@ -6,7 +6,7 @@ print("Your name is: ", name)
 
 print()
 
-print("The game is loading ...")
+print("... The game is loading ...")
 
 sleep(3)
 
@@ -54,8 +54,6 @@ stdscr.nodelay(True)
 
 snake = [[4,10], [4,9], [4,8]]
 
-food = [10,20]
-
 
 # attempt to solve problem with 
 snake_comp=[]
@@ -65,10 +63,13 @@ snake_comp.insert(0, snake[0])
 
 direction = KEY_RIGHT
 
+from ADD import countdown
 
+countdown(3,stdscr, HEIGHT, WIDTH)
+
+food = [10,20]
 
 stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
-
 
 
 while(True):
@@ -216,15 +217,30 @@ while(True):
 
     snake_comp.insert(0, newHead)
 
+    enemylist=[]
+
+    enemy(snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
+
+    if newHead[0] in enemylist:
+
+        gameover(HEIGHT, WIDTH, stdscr)
+
+        stdscr.refresh()
+
+        sleep(5)
+
+        break
+
+
     #foooooodd
 
     if  newHead==food:
 
         while food in snake_comp:  
 
-            RandomX= random.randint(1,(HEIGHT-3))
+            RandomX= random.randint(2,(HEIGHT-3))
             
-            RandomY= random.randint(1,(WIDTH-3))
+            RandomY= random.randint(2,(WIDTH-3))
             
             food = [RandomX, RandomY]
 
