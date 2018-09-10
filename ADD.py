@@ -10,7 +10,7 @@ def speed(a_snake):
     if 18>len(a_snake)>14:
         sleep(0.085)
     if len(a_snake)>17:
-        sleep(0.06)
+        sleep(0.055)
 
 import curses
 
