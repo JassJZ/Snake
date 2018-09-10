@@ -24,7 +24,7 @@ def Colors():
     curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_GREEN)
     curses.init_pair(2, curses.COLOR_RED, curses.COLOR_RED)
     curses.init_pair(3, curses.COLOR_BLUE, curses.COLOR_WHITE)
-    curses.init_pair(4, curses.COLOR_RED, curses.COLOR_MAGENTA)
+    curses.init_pair(4, curses.COLOR_BLUE, curses.COLOR_BLUE)
 
 def gameover(a_heigth, a_width, a_stdscr):
     Game = []
@@ -37,11 +37,11 @@ import random
 
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 
-def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
+def enemy(n, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
     
     if a_new_head == a_food:
 
-        if len(a_snake)==4:
+        if len(a_snake)==n:
 
             a_enemylist.pop()
 
@@ -74,8 +74,22 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
 
                 a_enemylist.insert(0, enemy2)
 
-            a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(3))
-            a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(3))
+            while a_enemylist in a_food:
+            
+                randomex= random.randint(2,(a_height-3))
+                    
+                randomey= random.randint(2,(a_width-3))
+                    
+                enemy1 = [randomex, randomey]
+
+                enemy2 = [(randomex-1),(randomey-1)]
+
+                a_enemylist.insert(0, enemy1)
+
+                a_enemylist.insert(0, enemy2)
+
+            a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(4))
+            a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(4))
     
     return a_enemylist
 
@@ -89,15 +103,17 @@ def countdown(n,a_stdscr,a_height, a_width) :
 
         a_stdscr.addstr(round(a_height/2),round(a_width/2), string, curses.color_pair(3))
 
-        sleep(0.8)
+        sleep(0.7)
 
         a_stdscr.refresh()
 
-        sleep(1)
+        sleep(0.7)
 
         a_stdscr.addstr(round(a_height/2),round(a_width/2), "GO!", curses.color_pair(3))
 
         a_stdscr.addstr(round(a_height/2),round(a_width/2), "      ")
+    
+
 
 def print_score(a_heigth, a_width, a_stdscr,a_score):
 

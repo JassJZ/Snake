@@ -75,7 +75,9 @@ score = 0
 
 stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
 
-enemylist=[[1,1], [HEIGHT, WIDTH]]
+enemylist=[[0,0], [HEIGHT, WIDTH]]
+
+enemylist1 = enemylist
 
 
 while(True):
@@ -116,14 +118,8 @@ while(True):
 
         direction = keyboardInput
 
-
-
-
-
     
     speed(snake)
-
-
 
     newHead = []
 
@@ -224,7 +220,10 @@ while(True):
     snake_comp.insert(0, newHead)
 
 
-    enemy(snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
+    enemy(5, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
+
+    enemy(10, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist1)
+
 
     if snake_comp[0] == enemylist[0]:
 
@@ -246,6 +245,26 @@ while(True):
 
         break
 
+    if snake_comp[0] == enemylist1[0]:
+
+        gameover(HEIGHT, WIDTH, stdscr)
+
+        stdscr.refresh()
+
+        sleep(5)
+
+        break
+
+    if snake_comp[0] == enemylist1[1]:
+
+        gameover(HEIGHT, WIDTH, stdscr)
+
+        stdscr.refresh()
+
+        sleep(5)
+
+        break
+
     
     #foooooodd
 
@@ -258,9 +277,19 @@ while(True):
         while food in snake_comp:  
 
             RandomX= random.randint(2,(HEIGHT-3))
-            
+                
             RandomY= random.randint(2,(WIDTH-3))
-            
+                
+            food = [RandomX, RandomY]
+
+            stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
+        
+        while food in enemylist:  
+
+            RandomX= random.randint(2,(HEIGHT-3))
+                
+            RandomY= random.randint(2,(WIDTH-3))
+                
             food = [RandomX, RandomY]
 
             stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
@@ -273,16 +302,10 @@ while(True):
 
         stdscr.addch(oldTail[0], oldTail[1], ' ')
 
-
    
     snake.insert(0,newHead)
 
     stdscr.addstr(newHead[0], newHead[1], '+', curses.color_pair(1))
-
-
-
-
-
 
 
 curses.endwin()
