@@ -36,10 +36,10 @@ food = [10,20]
 
 
 # attempt to solve problem with 
-#snake_comp=[]
-#snake_comp.insert(0, snake[len(snake)-1])
-#snake_comp.insert(0, snake[1])
-#snake_comp.insert(0, snake[0])
+snake_comp=[]
+snake_comp.insert(0, snake[len(snake)-1])
+snake_comp.insert(0, snake[1])
+snake_comp.insert(0, snake[0])
 
 direction = KEY_RIGHT
 
@@ -147,27 +147,27 @@ while(True):
 
     if newHeadX > HEIGHT -2: break
 
-    #snake_comp.insert(0, NewHead)
+    snake_comp.insert(0, newHead)
 
     #foooooodd
 
     if newHead == food:
 
-        # while food in snake_comp:  
+        while food in snake_comp:  
 
-        RandomX= random.randint(1,18)
-        
-        RandomY= random.randint(1,58)
-        
-        food = [RandomX, RandomY]
+            RandomX= random.randint(1,18)
+            
+            RandomY= random.randint(1,58)
+            
+            food = [RandomX, RandomY]
 
-        stdscr.addch(food[0], food[1], '*')
+            stdscr.addch(food[0], food[1], '*')
 
     else:
 
         oldTail = snake.pop()
 
-        #snake_comp.pop()
+        snake_comp.pop()
 
         stdscr.addch(oldTail[0], oldTail[1], ' ')
 
