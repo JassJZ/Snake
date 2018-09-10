@@ -1,3 +1,15 @@
+from time import sleep
+
+name= input("Enter a name:")
+
+print("Your name is: ", name)
+
+print()
+
+print("The game is loading ...")
+
+sleep(3)
+
 import curses
 
 #from time import sleep
@@ -14,7 +26,6 @@ import random
 
 from ADD import gameover
 
-from time import sleep
 
 
 HEIGHT = 20
@@ -205,20 +216,6 @@ while(True):
 
     snake_comp.insert(0, newHead)
 
-    enemylist = []
-
-    enemy(snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
-
-    if snake in enemylist:
-        
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
-        break
-
     #foooooodd
 
     if  newHead==food:
@@ -255,6 +252,10 @@ while(True):
 
 curses.endwin()
 
-print("Score: You've eaten", (len(snake)-3), "apples")
+print()
+
+print("Score:", name, ", you've eaten", (len(snake)-3), "apples")
+if (len(snake)-3)<5:
+    print ("Do better!!!")
 print("You ran out of the game")
 

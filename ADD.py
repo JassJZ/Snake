@@ -41,9 +41,7 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
     
     if a_new_head == a_food:
 
-        if 7>len(a_snake)>5:
-        
-            a_enemylist = []
+        if len(a_snake)==6:
 
             randomex= random.randint(2,(a_height-3))
                 
@@ -59,7 +57,6 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
 
             while a_enemylist in a_snake_comp:
             
-                a_enemylist = []
 
                 randomex= random.randint(2,(a_height-3))
                     
@@ -75,9 +72,8 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
 
             a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(3))
             a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(3))
-
-
-
+    
+    return a_enemylist
 
 
 
