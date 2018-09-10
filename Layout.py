@@ -22,6 +22,8 @@ from ADD import Colors
 
 from ADD import enemy
 
+from ADD import print_score
+
 import random
 
 from ADD import gameover
@@ -68,6 +70,8 @@ from ADD import countdown
 countdown(3,stdscr, HEIGHT, WIDTH)
 
 food = [10,20]
+
+score = 0
 
 stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
 
@@ -231,10 +235,14 @@ while(True):
 
         break
 
-
+    
     #foooooodd
 
     if  newHead==food:
+
+        score = score + 1
+
+        print_score(HEIGHT,WIDTH,stdscr,score)
 
         while food in snake_comp:  
 
