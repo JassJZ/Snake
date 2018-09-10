@@ -61,9 +61,9 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
             
                 enemylist = []
 
-                randomex= random.randint(2,(HEIGHT-3))
+                randomex= random.randint(2,(a_height-3))
                     
-                randomey= random.randint(2,(WIDTH-3))
+                randomey= random.randint(2,(a_width-3))
                     
                 enemy1 = [randomex, randomey]
 
