@@ -191,47 +191,19 @@ while(True):
     enemy(10, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist1)
 
 
-    if snake_comp[0] == enemylist[0]:
+    if (snake_comp[0] == enemylist[0]) or (snake_comp[0] == enemylist[1]):
 
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
+        end_game()
 
         break
 
-    if snake_comp[0] == enemylist[1]:
+    if (snake_comp[0] == enemylist1[0]) or (snake_comp[0] == enemylist1[1]):
 
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
+        end_game()
 
         break
 
-    if snake_comp[0] == enemylist1[0]:
 
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
-        break
-
-    if snake_comp[0] == enemylist1[1]:
-
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
-        break
-
-    
     #foooooodd
 
     if  newHead==food:
