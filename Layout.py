@@ -188,8 +188,6 @@ while(True):
 
     enemy(5, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
 
-    enemy(10, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist1)
-
 
     if (snake_comp[0] == enemylist[0]) or (snake_comp[0] == enemylist[1]):
 
