@@ -60,33 +60,36 @@ def enemy(n, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_wi
             a_enemylist.insert(0, enemy2)
 
             while a_enemylist in a_snake_comp:
-            
 
-                randomex= random.randint(2,(a_height-3))
-                    
-                randomey= random.randint(2,(a_width-3))
-                    
-                enemy1 = [randomex, randomey]
+                while a_enemylist in a_food:
 
-                enemy2 = [(randomex-1),(randomey-1)]
+                    randomex= random.randint(2,(a_height-3))
+                        
+                    randomey= random.randint(2,(a_width-3))
+                        
+                    enemy1 = [randomex, randomey]
 
-                a_enemylist.insert(0, enemy1)
+                    enemy2 = [(randomex-1),(randomey-1)]
 
-                a_enemylist.insert(0, enemy2)
+                    a_enemylist.insert(0, enemy1)
+
+                    a_enemylist.insert(0, enemy2)
 
             while a_enemylist in a_food:
+
+                while a_enemylist in a_snake_comp:
             
-                randomex= random.randint(2,(a_height-3))
-                    
-                randomey= random.randint(2,(a_width-3))
-                    
-                enemy1 = [randomex, randomey]
+                    randomex= random.randint(2,(a_height-3))
+                        
+                    randomey= random.randint(2,(a_width-3))
+                        
+                    enemy1 = [randomex, randomey]
 
-                enemy2 = [(randomex-1),(randomey-1)]
+                    enemy2 = [(randomex-1),(randomey-1)]
 
-                a_enemylist.insert(0, enemy1)
+                    a_enemylist.insert(0, enemy1)
 
-                a_enemylist.insert(0, enemy2)
+                    a_enemylist.insert(0, enemy2)
 
             a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(4))
             a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(4))
