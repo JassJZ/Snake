@@ -75,6 +75,8 @@ score = 0
 
 stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
 
+enemylist=[[1,1], [HEIGHT, WIDTH]]
+
 
 while(True):
 
@@ -221,11 +223,20 @@ while(True):
 
     snake_comp.insert(0, newHead)
 
-    enemylist=[]
 
     enemy(snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
 
-    if newHead[0] in enemylist:
+    if snake_comp[0] == enemylist[0]:
+
+        gameover(HEIGHT, WIDTH, stdscr)
+
+        stdscr.refresh()
+
+        sleep(5)
+
+        break
+
+    if snake_comp[0] == enemylist[1]:
 
         gameover(HEIGHT, WIDTH, stdscr)
 

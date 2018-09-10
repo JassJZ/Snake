@@ -39,11 +39,9 @@ from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 
 def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
     
-
-    
     if a_new_head == a_food:
 
-        if len(a_snake)==6:
+        if len(a_snake)==4:
 
             a_enemylist.pop()
 
