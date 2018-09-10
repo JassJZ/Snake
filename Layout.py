@@ -1,5 +1,7 @@
 from time import sleep
 
+import datetime
+
 name= input("Enter a name:")
 
 print("Your name is: ", name)
@@ -78,6 +80,14 @@ stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
 enemylist=[[0,0], [HEIGHT, WIDTH]]
 
 enemylist1 = enemylist
+
+def end_game():
+   ##elapsedTime = (datetime.datetime.now() - startTime).total_seconds()
+   gameover(HEIGHT, WIDTH, stdscr) #elapsedTime )
+   stdscr.refresh()
+   sleep(3)
+
+startTime = datetime.datetime.now()
 
 
 while(True):
@@ -165,54 +175,10 @@ while(True):
 
 
 
-    if newHeadY > WIDTH - 2:
-
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
-        break
-
-    if newHeadY < 1:
-
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
-        break
-
-    if newHeadX < 1:
-
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
-        break
-
-    if newHeadX > HEIGHT -2:
-
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
-        break
-
-    if snake[0] in snake[1:]:
-
-        gameover(HEIGHT, WIDTH, stdscr)
-
-        stdscr.refresh()
-
-        sleep(5)
-
+    if (newHeadY > WIDTH - 2) or  (newHeadY < 1) or (newHeadX < 1) or (newHeadX > HEIGHT -2) or (snake[0] in snake[1:]):
+        
+        end_game()
+        
         break
     
     
