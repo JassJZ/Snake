@@ -200,10 +200,24 @@ while(True):
         sleep(5)
 
         break
+    
+    
 
     snake_comp.insert(0, newHead)
 
-    enemy(snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH)
+    enemylist = []
+
+    enemy(snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
+
+    if snake in enemylist:
+        
+        gameover(HEIGHT, WIDTH, stdscr)
+
+        stdscr.refresh()
+
+        sleep(5)
+
+        break
 
     #foooooodd
 
@@ -211,9 +225,9 @@ while(True):
 
         while food in snake_comp:  
 
-            RandomX= random.randint(1,(HEIGHT-2))
+            RandomX= random.randint(1,(HEIGHT-3))
             
-            RandomY= random.randint(1,(WIDTH-2))
+            RandomY= random.randint(1,(WIDTH-3))
             
             food = [RandomX, RandomY]
 

@@ -37,13 +37,13 @@ import random
 
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 
-def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width):
+def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
     
     if a_new_head == a_food:
 
         if 7>len(a_snake)>5:
         
-            enemylist = []
+            a_enemylist = []
 
             randomex= random.randint(2,(a_height-3))
                 
@@ -53,13 +53,13 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
 
             enemy2 = [(randomex-1),(randomey-1)]
 
-            enemylist.insert(0, enemy1)
+            a_enemylist.insert(0, enemy1)
 
-            enemylist.insert(0, enemy2)
+            a_enemylist.insert(0, enemy2)
 
-            while enemylist in a_snake_comp:
+            while a_enemylist in a_snake_comp:
             
-                enemylist = []
+                a_enemylist = []
 
                 randomex= random.randint(2,(a_height-3))
                     
@@ -69,12 +69,12 @@ def enemy(a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width
 
                 enemy2 = [(randomex-1),(randomey-1)]
 
-                enemylist.insert(0, enemy1)
+                a_enemylist.insert(0, enemy1)
 
-                enemylist.insert(0, enemy2)
+                a_enemylist.insert(0, enemy2)
 
-            a_stdscr.addstr(enemylist[0][0], enemylist [0][1], "&", curses.color_pair(3))
-            a_stdscr.addstr(enemylist[1][0], enemylist [1][1], "&", curses.color_pair(3))
+            a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(3))
+            a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(3))
 
 
 
