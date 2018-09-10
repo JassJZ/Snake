@@ -197,11 +197,6 @@ while(True):
 
         break
 
-    if (snake_comp[0] == enemylist1[0]) or (snake_comp[0] == enemylist1[1]):
-
-        end_game()
-
-        break
 
 
     #foooooodd
@@ -212,10 +207,10 @@ while(True):
 
         print_score(HEIGHT,WIDTH,stdscr,score)
 
-        while food in snake_comp:  
+        while food in snake_comp: 
 
             RandomX= random.randint(2,(HEIGHT-3))
-                
+                    
             RandomY= random.randint(2,(WIDTH-3))
                 
             food = [RandomX, RandomY]
