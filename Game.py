@@ -155,9 +155,9 @@ while(True):
 
         while food in snake_comp:  
 
-            RandomX= random.randint(1,18)
+            RandomX= random.randint(1,(HEIGHT-2))
             
-            RandomY= random.randint(1,58)
+            RandomY= random.randint(1,(WIDTH-2))
             
             food = [RandomX, RandomY]
 
