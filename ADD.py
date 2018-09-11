@@ -26,7 +26,7 @@ def Colors():
     curses.init_pair(3, curses.COLOR_BLUE, curses.COLOR_WHITE)
     curses.init_pair(4, curses.COLOR_BLUE, curses.COLOR_BLUE)
 
-def gameover(a_heigth, a_width, a_stdscr):
+def gameover(a_heigth, a_width, a_stdscr, a_time):
     Game = []
     G = [round(a_heigth/2), round((a_width/2)-7)]
     Game.append(G)

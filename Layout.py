@@ -82,8 +82,8 @@ enemylist=[[0,0], [HEIGHT, WIDTH]]
 enemylist1 = enemylist
 
 def end_game():
-   ##elapsedTime = (datetime.datetime.now() - startTime).total_seconds()
-   gameover(HEIGHT, WIDTH, stdscr) #elapsedTime )
+   elapsedTime = (datetime.datetime.now() - startTime).total_seconds()
+   gameover(HEIGHT, WIDTH, stdscr, elapsedTime )
    stdscr.refresh()
    sleep(3)
 
