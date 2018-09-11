@@ -77,7 +77,7 @@ score = 0
 
 stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
 
-enemylist=[[0,0], [HEIGHT, WIDTH]]
+enemylist=[[0,0], [HEIGHT, WIDTH],[0,0], [HEIGHT, WIDTH],[0,0], [HEIGHT, WIDTH] ]
 
 enemylist1 = enemylist
 
@@ -186,10 +186,10 @@ while(True):
     snake_comp.insert(0, newHead)
 
 
-    enemy(5, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
+    enemy(5, 10, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
 
 
-    if (snake_comp[0] == enemylist[0]) or (snake_comp[0] == enemylist[1]):
+    if (snake_comp[0] == enemylist[0]) or (snake_comp[0] == enemylist[1]) or (snake_comp[0] == enemylist[2]) or (snake_comp[0] == enemylist[3]):
 
         end_game()
 
@@ -250,17 +250,12 @@ print("You ran out of the game")
 score = len(snake)-3
 
 f = open("score.txt", "a+")
-
 f.write(name + ":" + str(score))
 f.write("\n")
-
 f.close
 
 f=open("score.txt", "r")
-
 if f.mode == 'r':
     contents =f.read()
-
 print (contents)
-
 f.close

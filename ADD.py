@@ -40,11 +40,11 @@ import random
 
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 
-def enemy(n, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
+def enemy(n, m, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
     
     if a_new_head == a_food:
 
-        if len(a_snake)==n:
+        if len(a_snake) in [n,m]:
 
             a_enemylist.pop()
 
@@ -62,42 +62,13 @@ def enemy(n, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_wi
 
             a_enemylist.insert(0, enemy2)
 
-            while a_enemylist in a_snake_comp:
-
-                while a_enemylist in a_food:
-
-                    randomex= random.randint(2,(a_height-3))
-                        
-                    randomey= random.randint(2,(a_width-3))
-                        
-                    enemy1 = [randomex, randomey]
-
-                    enemy2 = [(randomex-1),(randomey-1)]
-
-                    a_enemylist.insert(0, enemy1)
-
-                    a_enemylist.insert(0, enemy2)
-
-            while a_enemylist in a_food:
-
-                while a_enemylist in a_snake_comp:
+            if a_enemylist in a_snake_comp or a_enemylist in a_food:
+                return enemy(n, m, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist)
+            else: 
+                a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(4))
+                a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(4))
+                return a_enemylist
             
-                    randomex= random.randint(2,(a_height-3))
-                        
-                    randomey= random.randint(2,(a_width-3))
-                        
-                    enemy1 = [randomex, randomey]
-
-                    enemy2 = [(randomex-1),(randomey-1)]
-
-                    a_enemylist.insert(0, enemy1)
-
-                    a_enemylist.insert(0, enemy2)
-
-            a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(4))
-            a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(4))
-    
-    return a_enemylist
 
 def countdown(n,a_stdscr,a_height, a_width) :
 
