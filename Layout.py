@@ -186,10 +186,10 @@ while(True):
     snake_comp.insert(0, newHead)
 
 
-    enemy(5, 10, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
+    enemy(5, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
 
 
-    if (snake_comp[0] == enemylist[0]) or (snake_comp[0] == enemylist[1]) or (snake_comp[0] == enemylist[2]) or (snake_comp[0] == enemylist[3]):
+    if (snake_comp[0] == enemylist[0]) or (snake_comp[0] == enemylist[1]) or (snake_comp[0] == enemylist[2]) or (snake_comp[0] == enemylist[3]) or (snake_comp[0] == enemylist[4]) or (snake_comp[0] == enemylist[5]):
 
         end_game()
 

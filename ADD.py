@@ -40,11 +40,11 @@ import random
 
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 
-def enemy(n, m, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
+def enemy(n, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist):
     
     if a_new_head == a_food:
 
-        if len(a_snake) in [n,m]:
+        if len(a_snake) in [n,(2*n), (3*n)]:
 
             a_enemylist.pop()
 
@@ -63,7 +63,7 @@ def enemy(n, m, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a
             a_enemylist.insert(0, enemy2)
 
             if a_enemylist in a_snake_comp or a_enemylist in a_food:
-                return enemy(n, m, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist)
+                return enemy(n,a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_width, a_enemylist)
             else: 
                 a_stdscr.addstr(a_enemylist[0][0], a_enemylist [0][1], "&", curses.color_pair(4))
                 a_stdscr.addstr(a_enemylist[1][0], a_enemylist [1][1], "&", curses.color_pair(4))
