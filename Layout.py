@@ -247,4 +247,20 @@ print("Score:", name, ", you've eaten", (len(snake)-3), "apples")
 if (len(snake)-3)<5:
     print ("Do better!!!")
 print("You ran out of the game")
+score = len(snake)-3
 
+f = open("score.txt", "a+")
+
+f.write(name + ":" + str(score))
+f.write("\n")
+
+f.close
+
+f=open("score.txt", "r")
+
+if f.mode == 'r':
+    contents =f.read()
+
+print (contents)
+
+f.close

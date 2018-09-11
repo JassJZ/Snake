@@ -109,15 +109,16 @@ def countdown(n,a_stdscr,a_height, a_width) :
 
         a_stdscr.addstr(round(a_height/2),round(a_width/2), string, curses.color_pair(3))
 
-        sleep(0.7)
+        sleep(0.8)
 
-        a_stdscr.refresh()
+    a_stdscr.refresh()
 
-        sleep(0.7)
+    sleep(0.8)
 
-        a_stdscr.addstr(round(a_height/2),round(a_width/2), "GO!", curses.color_pair(3))
-
-        a_stdscr.addstr(round(a_height/2),round(a_width/2), "      ")
+    a_stdscr.addstr(round(a_height/2),round(a_width/2), "GO!", curses.color_pair(3))
+    a_stdscr.refresh()
+    sleep(0.8)
+    a_stdscr.addstr(round(a_height/2),round(a_width/2), "      ")
     
 
 
