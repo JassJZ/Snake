@@ -205,7 +205,7 @@ while(True):
 
         print_score(HEIGHT,WIDTH,stdscr,score)
 
-        while food in snake_comp: 
+        while food in snake_comp or food in enemylist: 
 
             RandomX= random.randint(2,(HEIGHT-3))
                     
@@ -215,15 +215,6 @@ while(True):
 
             stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
         
-        while food in enemylist:  
-
-            RandomX= random.randint(2,(HEIGHT-3))
-                
-            RandomY= random.randint(2,(WIDTH-3))
-                
-            food = [RandomX, RandomY]
-
-            stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
 
     else:
 
