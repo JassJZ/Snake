@@ -30,8 +30,11 @@ def gameover(a_heigth, a_width, a_stdscr, a_time):
     Game = []
     G = [round(a_heigth/2), round((a_width/2)-7)]
     Game.append(G)
+    A = [round((a_heigth/2)+2), round((a_width/2)-13)]
+    Game.append(A)
 
     a_stdscr.addstr(Game[0][0],Game[0][1], "GAME OVER", curses.color_pair(3))
+    a_stdscr.addstr(Game[1][0],Game[1][1], "after " + str(a_time) + " seconds" , curses.color_pair(3))
 
 import random
 
