@@ -70,6 +70,21 @@ def enemy(n, a_snake, a_snake_comp, a_new_head, a_food, a_stdscr, a_height, a_wi
                 return a_enemylist
             
 
+
+
+
+
+
+
+
+
+            
+            
+
+        
+    
+
+
 def countdown(n,a_stdscr,a_height, a_width) :
 
     for num in range(n,-1,-1):

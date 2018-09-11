@@ -30,8 +30,6 @@ import random
 
 from ADD import gameover
 
-
-
 HEIGHT = 20
 
 WIDTH = 60
@@ -79,7 +77,8 @@ stdscr.addstr(food[0], food[1], ' ', curses.color_pair(2))
 
 enemylist=[[0,0], [HEIGHT, WIDTH],[0,0], [HEIGHT, WIDTH],[0,0], [HEIGHT, WIDTH] ]
 
-enemylist1 = enemylist
+
+m = 4
 
 def end_game():
    elapsedTime = (datetime.datetime.now() - startTime).total_seconds()
@@ -186,7 +185,7 @@ while(True):
     snake_comp.insert(0, newHead)
 
 
-    enemy(5, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
+    enemy(m, snake, snake_comp, newHead, food, stdscr, HEIGHT, WIDTH, enemylist)
 
 
     if (snake_comp[0] == enemylist[0]) or (snake_comp[0] == enemylist[1]) or (snake_comp[0] == enemylist[2]) or (snake_comp[0] == enemylist[3]) or (snake_comp[0] == enemylist[4]) or (snake_comp[0] == enemylist[5]):
@@ -194,7 +193,6 @@ while(True):
         end_game()
 
         break
-
 
 
     #foooooodd
